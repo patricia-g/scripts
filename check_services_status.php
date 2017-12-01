@@ -11,12 +11,13 @@ foreach ($res as $val) {
 	if(stripos($val, ' - ] ')!==false){
 		$result[] = $val;
 		//print_r($val);
-		while(stristr($val, $s)!==false){
+	}else{echo "RUNNING" .PHP_EOL;
+			break;
+}
+	while(stristr($val, $s)!==false){
 			echo $message;
 			print_r($val);
 			break;
-		}
-	}	
+		}	
 }
-
 ?>
