@@ -1,7 +1,7 @@
 <?php
 #Check if any ubuntu/CentOS service isn't running
 //$out = 'apache2	cron mysql';
-$s = 'hhtpd';
+$s = 'mysql';
 $cmnd = `service --status-all`;
 $message="Uno o más servicios requeridos podrían no estar corriendo.Favor de verificar" .PHP_EOL;
 
@@ -11,13 +11,16 @@ foreach ($res as $val) {
 	if(stripos($val, ' - ] ')!==false){
 		$result[] = $val;
 		//print_r($val);
-	}else{echo "RUNNING" .PHP_EOL;
-			break;
-}
 	while(stristr($val, $s)!==false){
 			echo $message;
 			print_r($val);
 			break;
 		}	
+	}
+	else if(stristr($val, 'apache')!==false)
+		{
+			echo "Servicios requeridos corriendo";
+			print_r($val);	
+		}
 }
 ?>
