@@ -2,11 +2,21 @@
 #Script for deleting old backups
 #Nov, 2017.
 
-chdir('Test/');
+//chdir('Test/');
 echo getcwd() . PHP_EOL;
 
+$weeks=3;
 $c = `ls -al`;
-echo $c;
+echo $c .PHP_EOL;
+echo var_dump($c);
 
-echo "Se han borrado backups antiguos" . PHP_EOL;
+
+
+foreach($files as $f){
+	if(filemtime($f) < time() - ){
+		unlink($f);
+	}
+	echo "Se han borrado backups antiguos" . PHP_EOL;
+
+}
 ?>
