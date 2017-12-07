@@ -3,19 +3,33 @@
 #Nov, 2017.
 
 //chdir('Test/');
-echo getcwd() . PHP_EOL;
-
+$path=;
 $weeks=3;
 $c = `ls -al`;
+$filetypes_to_delete = array(".txt");
 //echo $c .PHP_EOL;
 echo var_dump($c);
 
-
-
-foreach($files as $f){
-	if(filemtime($f) < time() - $weeks * (7 * 24 * 3600)){
-		unlink($f);
-		echo "Se han borrado backups antiguos" . PHP_EOL;
-	}
-}
+// Open the directory
+//if ($handle = opendir(getcwd()))
+//{
+    while (($file = readdir($handle))!==false)
+    {
+        
+        if (is_file($path.$file))
+        {
+            $file_info = pathinfo($path.$file);
+            if (isset($file_info['extension']) && in_array(strtolower($file_info['extension']), $filetypes_to_delete))
+            {
+                if (filemtime($path.$file) < ( time() - ( $weeks *7 * 24 * 60 * 60 ) ) )
+                {
+                    unlink($path.$file);
+                    echo "Se han borrado backups antiguos" . PHP_EOL;
+                }
+            }else{
+                	echo "Test1"; 
+                }
+        }
+    }
+//}
 ?>
