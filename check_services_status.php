@@ -23,4 +23,9 @@ foreach ($res as $val) {
 			print_r($val);	
 		}
 }
+if(empty($res))
+{
+	echo "NO SE ENCONTRARON SERVICIOS! REVISAR";
+
+}
 ?>
