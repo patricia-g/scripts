@@ -3,16 +3,15 @@
 #Nov, 2017.
 
 //chdir('Test/');
-$path=;
+$path= "/";
 $weeks=3;
 $c = `ls -al`;
 $filetypes_to_delete = array(".txt");
-//echo $c .PHP_EOL;
-echo var_dump($c);
+//echo var_dump($c);
 
 // Open the directory
-//if ($handle = opendir(getcwd()))
-//{
+if ($handle = opendir($path))
+{
     while (($file = readdir($handle))!==false)
     {
         
@@ -27,9 +26,9 @@ echo var_dump($c);
                     echo "Se han borrado backups antiguos" . PHP_EOL;
                 }
             }else{
-                	echo "Test1"; 
+                	echo "Archivo reciente." .PHP_EOL; 
                 }
         }
     }
-//}
+}
 ?>
