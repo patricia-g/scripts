@@ -21,6 +21,7 @@ foreach ($res as $val) {
 		{
 			echo "Servicios requeridos corriendo";
 			print_r($val);	
+
 		}
 }
 if(empty($res))
