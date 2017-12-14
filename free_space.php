@@ -3,5 +3,5 @@
 
 $d = round(disk_free_space('/')/1024 /1024 /1024);
 
-echo $d." GB libres" .PHP_EOL;
+echo $d." GB libres en este disco" .PHP_EOL;
 ?>
