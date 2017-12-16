@@ -23,7 +23,7 @@ foreach ($res as $val) {
 			print_r($val);	
 
 		}
-	elseif (stristr($val, $s)!==false) {
+	else if (stristr($val, $s)!==false) {
 			echo "Servicios requeridos corriendo";
 			print_r($val);
 		}	
